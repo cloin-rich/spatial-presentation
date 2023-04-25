@@ -312,7 +312,7 @@ h1 {
 </style>
 ---
 layout: iframe
-url: https://nu.maps.arcgis.com/apps/instant/basic/index.html?appid=8df8906a6d8a4b65a345d201ac57b9b8&locale=en-US
+url: https://nu.maps.arcgis.com/apps/instant/basic/index.html?appid=8df8906a6d8a4b65a345d201ac57b9b8
 ---
 ---
 layout: default
@@ -402,8 +402,8 @@ h1 {
 }
 </style>
 ---
-layout: image
-image: ./images/flowlines.jpg
+layout: iframe
+url: https://nu.maps.arcgis.com/apps/instant/basic/index.html?appid=814d902502ec4fa9b712338eb6d76a3c&locale=en-US
 ---
 ---
 layout: default
@@ -417,7 +417,7 @@ Provides nationwide discharge from 1979-present & 30 days into the future:
 
 <v-click>
 
-```ts
+```ts {0|1|3-5|7-10|11|15|all}
 def getNWMData(dates, name, wdir=None, outdir=None, nco_pth=None, rm_temp=True):
   if len(dates) > 1:
           strt_date = dates[0]
@@ -463,7 +463,7 @@ Use Manning's equation to calculate hydraulic properties of each catchment
 <v-click>
 
 <img src = '/images/mannings.jpg' style = "margin: left;
-width: 100%;
+width: 80%;
 vertical-align: top">
 
 </v-click>
@@ -491,7 +491,7 @@ Use raster calculator to subtract the water depth from the HAND layer:
 </v-click>
 <v-click>
 
-```ts
+```ts {0|1|2|3|all}
 depth = arcpy.sa.RasterCalculator(ras_list,ras_names,'Con(hand - stage > 0, 0, stage-hand)',extent_type = 'FirstOf')
 depth = arcpy.sa.ExtractByMask(depth,odir + "\\" + name + '-AOI_proj.shp')
 depth.save(odir + "\\" + name + '-depth_map.tif')
@@ -507,7 +507,7 @@ Convert the raster flood depth to a vector flood bound file:
 
 <v-click>
 
-```ts
+```ts {0|1|2|3|all}
 bound = arcpy.sa.RasterCalculator([depth], ['depth'], 'depth > 0')
 bound = arcpy.sa.Reclassify(bound, "Value", arcpy.sa.RemapValue([[1,1], [0,'NODATA']]))
 bound = arcpy.RasterToPolygon_conversion(bound, odir + "\\" + name + '-flood_bound.shp', "NO_SIMPLIFY")
@@ -527,12 +527,8 @@ h1 {
 }
 </style>
 ---
-layout: image
-image: ./images/flood bound.jpg
----
----
-layout: image
-image: ./images/flood depth.jpg
+layout: iframe
+url: https://nu.maps.arcgis.com/apps/instant/basic/index.html?appid=4a953f1d4a184e2c8ea953059a540969&locale=en-US
 ---
 ---
 layout: intro
@@ -598,7 +594,3 @@ h1 {
   -moz-text-fill-color: transparent;
 }
 </style>
----
-layout: iframe-right
-url: https://nu.maps.arcgis.com/apps/instant/basic/index.html?appid=d52de729e75549fdb05ae69e9350bf43
----
