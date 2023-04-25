@@ -403,7 +403,7 @@ h1 {
 </style>
 ---
 layout: iframe
-url: https://nu.maps.arcgis.com/apps/instant/basic/index.html?appid=814d902502ec4fa9b712338eb6d76a3c&locale=en-US
+url: https://nu.maps.arcgis.com/apps/instant/basic/index.html?appid=814d902502ec4fa9b712338eb6d76a3c
 ---
 ---
 layout: default
